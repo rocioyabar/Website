@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Art studio by ROYÁ</title>
+<meta name="description" content="Art studio by ROYÁ: flores esculpidas a mano, murales y platos con pan de oro. Envíos a todo el Perú.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#FCFAF7;--sand:#F0EBE3;--line:#DCD8D2;--ink:#021B1D;--teal:#0B454A;--gold:#8A6224;--muted:#4E6664;--body:#2F4A4C}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 'Jost',system-ui,sans-serif}
+  a{color:var(--teal)}a:hover{color:var(--ink)}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+  .script{font-family:'Pinyon Script',cursive;font-weight:400;color:var(--gold);line-height:1}
+  h1,h2,h3{font-family:'Jost',sans-serif;font-weight:300;margin:0}
+  .eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 30px;border-radius:999px;text-decoration:none;font-weight:500;letter-spacing:.04em}
+  .btn-primary{background:var(--teal);color:var(--bg)}.btn-primary:hover{background:var(--ink);color:var(--bg)}
+  .btn-outline{border:1px solid var(--ink);color:var(--ink)}
+  .btn-dark{background:var(--ink);color:var(--bg);min-height:48px}.btn-dark:hover{background:var(--teal);color:var(--bg)}
+
+  header{border-bottom:1px solid var(--line)}
+  .nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;padding-top:20px;padding-bottom:20px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+  .logo .script{font-size:30px}
+  .logo .word{font-size:28px;font-weight:300;letter-spacing:.24em}
+  nav{display:flex;flex-wrap:wrap;align-items:center;gap:8px 28px;font-size:15px}
+  nav a{text-decoration:none;color:var(--ink);padding:10px 0}
+  .lang{display:flex;border:1px solid #B0BBBB;border-radius:999px;padding:3px;gap:2px}
+  .lang button{min-width:48px;min-height:40px;border:0;border-radius:999px;background:transparent;color:var(--ink);font:500 13px 'Jost',sans-serif;letter-spacing:.08em;cursor:pointer}
+  .lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+  .hero{display:flex;flex-wrap:wrap;align-items:center;gap:56px;padding-top:72px;padding-bottom:96px}
+  .hero-text{flex:1 1 420px;display:flex;flex-direction:column;gap:24px}
+  .hero h1{font-size:clamp(46px,6vw,72px);line-height:1.05;display:flex;flex-direction:column;gap:4px}
+  .hero h1 .sig{display:flex;align-items:baseline;gap:18px}
+  .hero h1 .script{font-size:1.05em}
+  .hero h1 .word{letter-spacing:.16em;color:var(--teal)}
+  .hero p{margin:0;max-width:460px;font-size:19px;color:var(--body)}
+  .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px}
+  .hero-art{flex:1 1 380px;display:flex;gap:18px;align-items:flex-end}
+  .hero-art .main{flex:3 1 0;aspect-ratio:4/5;border-radius:220px 220px 8px 8px;background:#A3566A;overflow:hidden}
+  .hero-art .main img{width:100%;height:100%;object-fit:cover}
+  .hero-art .side{flex:2 1 0;display:flex;flex-direction:column;gap:18px}
+  .hero-art .side div{overflow:hidden}.hero-art .side img{width:100%;height:100%;object-fit:cover}
+  .hero-art .side div:first-child{aspect-ratio:1;border-radius:50%;background:#C9A15E}
+  .hero-art .side div:last-child{aspect-ratio:3/4;border-radius:8px;background:#E8D8D2}
+
+  .ph{font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+
+  #tienda{background:var(--sand)}
+  .section{padding-top:96px;padding-bottom:96px;display:flex;flex-direction:column;gap:48px}
+  .section-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
+  .section-head>div{display:flex;flex-direction:column;gap:10px}
+  h2{font-size:clamp(38px,4.5vw,56px);line-height:1.05}
+  .section-head p{margin:0;max-width:420px;color:var(--body)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:40px 32px}
+  .work{display:flex;flex-direction:column;gap:14px}
+  .work .img{aspect-ratio:4/5;border-radius:6px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .work .img img{width:100%;height:100%;object-fit:cover}
+  .work .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .work h3{font-size:24px;font-weight:400;line-height:1.2}
+  .work .price{font-weight:500;white-space:nowrap}
+  .work .meta{margin:0;font-size:15px;color:var(--muted)}
+  .badge{position:absolute;top:14px;left:14px;padding:6px 14px;border-radius:999px;background:var(--bg);color:var(--ink);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase}
+  .sold .price{color:var(--muted);text-decoration:line-through}
+
+  .about{display:flex;flex-wrap:wrap;align-items:center;gap:64px;padding-top:112px;padding-bottom:112px}
+  .portrait{flex:1 1 340px;max-width:460px;aspect-ratio:4/5;border-radius:8px 8px 230px 230px;background:#E8D8D2;overflow:hidden}
+  .portrait img{width:100%;height:100%;object-fit:cover}
+  .about-text{flex:1 1 420px;display:flex;flex-direction:column;gap:22px}
+  .about-text p{margin:0;font-size:18px;color:var(--body)}
+  .about-text .quote{font-family:'Pinyon Script',cursive;font-size:34px;line-height:1.3;color:var(--teal)}
+
+  #comprar{background:var(--teal);color:var(--bg)}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:40px}
+  .step{display:flex;flex-direction:column;gap:12px;border-top:1px solid #5F827D;padding-top:24px}
+  .step .n{font-size:44px;font-weight:300;line-height:1;color:#D9B26F}
+  .step h3{font-size:20px;font-weight:500}
+  .step p{margin:0;color:#D6E0DD}
+
+  .contact{display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px;padding-top:112px;padding-bottom:112px}
+  .contact h2{max-width:760px}
+  .contact p{margin:0;max-width:520px;color:var(--body)}
+  .contact .small{font-size:15px;color:var(--muted)}
+
+  footer{border-top:1px solid var(--line)}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:28px;padding-bottom:28px;font-size:14px;color:var(--muted)}
+  footer .script{font-size:20px}
+  footer .word{letter-spacing:.22em;color:var(--ink)}
+
+  @media (max-width:600px){.wrap{padding:0 20px}.hero{padding-top:48px}.section,.about,.contact{padding-top:72px;padding-bottom:72px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#inicio" class="logo" aria-label="by ROYÁ"><span class="script">by</span><span class="word">ROYÁ</span></a>
+    <nav data-i18n-attr="aria-label:navLabel" aria-label="Navegación principal">
+      <a href="#tienda" data-i18n="navShop">Tienda</a>
+      <a href="#sobre" data-i18n="navAbout">Sobre ROYÁ</a>
+      <a href="#comprar" data-i18n="navHow">Cómo comprar</a>
+      <a href="#contacto" data-i18n="navContact">Contacto</a>
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button type="button" data-lang="es" aria-pressed="true">ES</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="inicio" class="wrap hero">
+    <div class="hero-text">
+      <span class="eyebrow" data-i18n="eyebrow">Arte original · Hecho en Perú</span>
+      <h1><span data-i18n="heroTitle">Art studio</span><span class="sig"><span class="script">by</span><span class="word">ROYÁ</span></span></h1>
+      <p data-i18n="heroText">Flores esculpidas a mano, una por una. Piezas únicas para tu pared y tu mesa, con envío a todo el Perú.</p>
+      <div class="actions">
+        <a href="#tienda" class="btn btn-primary" data-i18n="ctaShop">Ver la tienda</a>
+        <a href="#contacto" class="btn btn-outline" data-i18n="ctaContact">Escríbeme</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="main"><img src="img/hero-detalle.jpg" alt="" data-i18n-attr="alt:heroAlt"></div>
+      <div class="side" aria-hidden="true"><div><img src="img/hero-circulo.jpg" alt=""></div><div><img src="img/hero-textura.jpg" alt=""></div></div>
+    </div>
+  </section>
+
+  <section id="tienda">
+    <div class="wrap section">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-i18n="shopEyebrow">Colección disponible</span>
+          <h2 data-i18n="shopTitle">Tienda</h2>
+        </div>
+        <p data-i18n="shopText">Cada obra es única. Elige la tuya y escríbeme para reservarla.</p>
+      </div>
+
+      <!--
+        OBRAS: edita la lista WORKS en el <script> al final de la página.
+        Cada obra: título (es/en), técnica y medidas, precio en soles, foto, y si está vendida.
+      -->
+      <div class="grid" id="works"></div>
+    </div>
+  </section>
+
+  <section id="sobre" class="wrap about">
+    <div class="portrait"><img src="img/taller.jpg" alt="" data-i18n-attr="alt:portrait"></div>
+    <div class="about-text">
+      <span class="eyebrow" data-i18n="aboutEyebrow">Sobre ROYÁ</span>
+      <h2 data-i18n="aboutHeading">La artista</h2>
+      <p data-i18n="aboutText">[Aquí va la historia de la artista: cómo empezó a esculpir flores, qué la inspira, su técnica y desde dónde trabaja.]</p>
+      <p class="quote" data-i18n="aboutQuote">“[Una frase de la artista sobre su arte.]”</p>
+    </div>
+  </section>
+
+  <section id="comprar">
+    <div class="wrap section">
+      <h2 data-i18n="howTitle">Cómo comprar</h2>
+      <div class="steps">
+        <div class="step"><span class="n">01</span><h3 data-i18n="step1Title">Elige tu obra</h3><p data-i18n="step1Text">Explora la tienda y encuentra la pieza que te habla.</p></div>
+        <div class="step"><span class="n">02</span><h3 data-i18n="step2Title">Escríbeme</h3><p data-i18n="step2Text">Toca “Comprar” y se abrirá un correo con el nombre de la obra. Te respondo para confirmar.</p></div>
+        <div class="step"><span class="n">03</span><h3 data-i18n="step3Title">Pago y envío</h3><p data-i18n="step3Text">Coordinamos el pago y la enviamos bien embalada a cualquier lugar del Perú.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="wrap contact">
+    <span class="eyebrow" data-i18n="contactEyebrow">Contacto</span>
+    <h2 data-i18n="contactTitle">¿Preguntas o una obra por encargo?</h2>
+    <p data-i18n="contactText">Escríbeme para consultas, encargos personalizados o para ver más obras.</p>
+    <a href="mailto:rocio_yabar@hotmail.com" class="btn btn-primary" style="font-size:18px;min-height:56px">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+      rocio_yabar@hotmail.com
+    </a>
+    <p class="small" data-i18n="shipping">Precios en soles (S/). Envíos a todo el Perú.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><span class="script">by</span> <span class="word">ROYÁ</span> · © <span id="year">2026</span></span>
+    <span data-i18n="footer">Envíos a todo el Perú</span>
+  </div>
+</footer>
+
+<script>
+/* ====== OBRAS — edita aquí ======
+   photo: ruta a la foto (ej. "img/obra1.jpg"); vacío = color de muestra
+   price: número en soles, sin "S/"
+   sold: true si ya se vendió
+*/
+var WORKS = [
+  { es: "Flor grande", en: "Large flower", photo: "img/flor-grande.jpg", price: "[PRECIO]", sold: false },
+  { es: "Rosa rosada", en: "Blush rose", photo: "img/rosa-rosada.jpg", price: "[PRECIO]", sold: false },
+  { es: "Mural floral", en: "Floral wall piece", photo: "img/mural-floral.jpg", price: "[PRECIO]", sold: false },
+  { es: "Amapolas sobre textura", en: "Poppies on texture", photo: "img/amapolas.jpg", price: "[PRECIO]", sold: false },
+  { es: "Flor cuenco", en: "Flower bowl", photo: "img/flor-cuenco.jpg", price: "[PRECIO]", sold: false },
+  { es: "Dúo de flores", en: "Flower duo", photo: "img/duo-flores.jpg", price: "[PRECIO]", sold: false },
+  { es: "Par de flores blancas", en: "Pair of white flowers", photo: "img/par-flores-blancas.jpg", price: "[PRECIO]", sold: false },
+  { es: "Plato corazón con pan de oro", en: "Gold-leaf heart dish", photo: "img/plato-corazon.jpg", price: "[PRECIO]", sold: false }
+];
+/* Medidas: agrega size: "20 cm" a cada obra si quieres mostrarlas */
+var EMAIL = "rocio_yabar@hotmail.com";
+
+var T = {
+  es: { navLabel:"Navegación principal", navShop:"Tienda", navAbout:"Sobre ROYÁ", navHow:"Cómo comprar", navContact:"Contacto",
+    eyebrow:"Arte original · Hecho en Perú", heroTitle:"Art studio", heroText:"Flores esculpidas a mano, una por una. Piezas únicas para tu pared y tu mesa, con envío a todo el Perú.", heroAlt:"Detalle de flores esculpidas a mano", handmade:"Hecho a mano · Pieza única",
+    ctaShop:"Ver la tienda", ctaContact:"Escríbeme", featuredPhoto:"Foto destacada",
+    shopEyebrow:"Colección disponible", shopTitle:"Tienda", shopText:"Cada obra es única. Elige la tuya y escríbeme para reservarla.",
+    photo:"Foto de la obra", buy:"Comprar", sold:"Vendida", askSimilar:"Pedir una similar",
+    portrait:"Flores recién hechas en el taller", aboutEyebrow:"Sobre ROYÁ", aboutHeading:"La artista",
+    aboutText:"[Aquí va la historia de la artista: cómo empezó a esculpir flores, qué la inspira, su técnica y desde dónde trabaja.]",
+    aboutQuote:"“[Una frase de la artista sobre su arte.]”",
+    howTitle:"Cómo comprar", step1Title:"Elige tu obra", step1Text:"Explora la tienda y encuentra la pieza que te habla.",
+    step2Title:"Escríbeme", step2Text:"Toca “Comprar” y se abrirá un correo con el nombre de la obra. Te respondo para confirmar.",
+    step3Title:"Pago y envío", step3Text:"Coordinamos el pago y la enviamos bien embalada a cualquier lugar del Perú.",
+    contactEyebrow:"Contacto", contactTitle:"¿Preguntas o una obra por encargo?", contactText:"Escríbeme para consultas, encargos personalizados o para ver más obras.",
+    shipping:"Precios en soles (S/). Envíos a todo el Perú.", footer:"Envíos a todo el Perú",
+    mailBuy:"Quiero comprar: ", mailSimilar:"Consulta por una obra similar a: " },
+  en: { navLabel:"Main navigation", navShop:"Shop", navAbout:"About ROYÁ", navHow:"How to buy", navContact:"Contact",
+    eyebrow:"Original art · Made in Peru", heroTitle:"Art studio", heroText:"Flowers sculpted by hand, one petal at a time. One-of-a-kind pieces for your wall and table, shipped anywhere in Peru.", heroAlt:"Close-up of hand-sculpted flowers", handmade:"Handmade · One of a kind",
+    ctaShop:"Visit the shop", ctaContact:"Get in touch", featuredPhoto:"Featured photo",
+    shopEyebrow:"Available collection", shopTitle:"Shop", shopText:"Every piece is one of a kind. Pick yours and message me to reserve it.",
+    photo:"Artwork photo", buy:"Buy", sold:"Sold", askSimilar:"Ask for a similar piece",
+    portrait:"Freshly made flowers in the studio", aboutEyebrow:"About ROYÁ", aboutHeading:"The artist",
+    aboutText:"[The artist’s story goes here: how she started sculpting flowers, what inspires her, her technique and where she works.]",
+    aboutQuote:"“[A line from the artist about her art.]”",
+    howTitle:"How to buy", step1Title:"Choose your piece", step1Text:"Browse the shop and find the piece that speaks to you.",
+    step2Title:"Message me", step2Text:"Tap “Buy” and an email opens with the artwork’s name. I’ll reply to confirm.",
+    step3Title:"Payment & shipping", step3Text:"We arrange payment and I ship it carefully packed anywhere in Peru.",
+    contactEyebrow:"Contact", contactTitle:"Questions or a commission?", contactText:"Write to me with questions, custom commissions, or to see more work.",
+    shipping:"Prices in Peruvian soles (S/). Shipping across Peru.", footer:"Shipping across Peru",
+    mailBuy:"I would like to buy: ", mailSimilar:"Asking about a piece similar to: " }
+};
+
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+
+function renderWorks(lang){
+  var t = T[lang];
+  document.getElementById("works").innerHTML = WORKS.map(function(w){
+    var title = lang === "en" ? w.en : w.es;
+    var meta = t.handmade + (w.size ? " · " + w.size : "");
+    var subject = "by ROYÁ — " + (w.sold ? t.mailSimilar : t.mailBuy) + title;
+    var href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(subject);
+    var img = w.photo
+      ? '<img src="' + esc(w.photo) + '" alt="' + esc(title) + '" loading="lazy">'
+      : '<span class="ph">' + esc(t.photo) + '</span>';
+    return '<article class="work' + (w.sold ? ' sold' : '') + '">' +
+      '<div class="img" style="background:#E8D8D2">' + img + (w.sold ? '<span class="badge">' + esc(t.sold) + '</span>' : '') + '</div>' +
+      '<div class="row"><h3>' + esc(title) + '</h3><span class="price">S/ ' + esc(w.price) + '</span></div>' +
+      '<p class="meta">' + esc(meta) + '</p>' +
+      (w.sold
+        ? '<a class="btn btn-outline" style="min-height:48px" href="' + href + '">' + esc(t.askSimilar) + '</a>'
+        : '<a class="btn btn-dark" href="' + href + '">' + esc(t.buy) + '</a>') +
+      '</article>';
+  }).join("");
+}
+
+function setLang(lang){
+  var t = T[lang];
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(function(el){ el.textContent = t[el.getAttribute("data-i18n")]; });
+  document.querySelectorAll("[data-i18n-attr]").forEach(function(el){
+    var p = el.getAttribute("data-i18n-attr").split(":"); el.setAttribute(p[0], t[p[1]]);
+  });
+  document.querySelectorAll(".lang button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.lang === lang ? "true" : "false"); });
+  renderWorks(lang);
+  try { localStorage.setItem("roya-lang", lang); } catch(e) {}
+}
+
+document.querySelectorAll(".lang button").forEach(function(b){ b.addEventListener("click", function(){ setLang(b.dataset.lang); }); });
+document.getElementById("year").textContent = new Date().getFullYear();
+var saved = "es"; try { saved = localStorage.getItem("roya-lang") || "es"; } catch(e) {}
+setLang(saved);
+</script>
+</body>
+</html>
